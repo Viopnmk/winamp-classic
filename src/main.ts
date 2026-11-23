@@ -141,87 +141,83 @@ app.innerHTML = `
         <ui-menubar id="winamp-menubar" class="winamp-menubar" aria-label="Winamp Menu Bar">
           <ui-menu id="menu-file">
             <ui-menu-trigger>
-              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--file"><span class="mnemonic">F</span>ile</button>
+              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--file"><span class="mnemonic">文</span>件</button>
             </ui-menu-trigger>
             <ui-menu-content side-offset="4" align="start">
-              <ui-menu-item value="open-file" data-agent-confirm="Open the local audio file picker?">Play File… <span class="menu-kbd">L</span></ui-menu-item>
+              <ui-menu-item value="open-file" data-agent-confirm="Open the local audio file picker?">打开文件… <span class="menu-kbd">L</span></ui-menu-item>
               <ui-menu-separator></ui-menu-separator>
-              <ui-menu-item value="track-0">1. The Magic Primitive (Suno v6)</ui-menu-item>
-              <ui-menu-item value="track-1">2. Light DOM Fever (Suno v6)</ui-menu-item>
-              <ui-menu-item value="track-2">3. Copy Paste Philosophy — shadcn (Suno v6)</ui-menu-item>
-              <ui-menu-item value="track-3">4. Snapshot, Query, Act — WebMCP (Suno v6)</ui-menu-item>
-              <ui-menu-item value="track-4">5. Whippin' the Llama's DOM (Suno v6)</ui-menu-item>
+              <ui-menu-item value="track-0">1. 合成演示曲（内置）</ui-menu-item>
               <ui-menu-separator></ui-menu-separator>
-              <ui-menu-item value="reset-snapshot">Reset Player State</ui-menu-item>
+              <ui-menu-item value="reset-snapshot">重置播放器</ui-menu-item>
             </ui-menu-content>
           </ui-menu>
 
           <ui-menu id="menu-play">
             <ui-menu-trigger>
-              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--play"><span class="mnemonic">P</span>lay</button>
+              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--play"><span class="mnemonic">播</span>放</button>
             </ui-menu-trigger>
             <ui-menu-content side-offset="4" align="start">
-              <ui-menu-item value="prev">Previous <span class="menu-kbd">Z</span></ui-menu-item>
-              <ui-menu-item value="play">Play <span class="menu-kbd">X</span></ui-menu-item>
-              <ui-menu-item value="pause">Pause <span class="menu-kbd">C</span></ui-menu-item>
-              <ui-menu-item value="stop">Stop <span class="menu-kbd">V</span></ui-menu-item>
-              <ui-menu-item value="next">Next <span class="menu-kbd">B</span></ui-menu-item>
+              <ui-menu-item value="prev">上一首 <span class="menu-kbd">Z</span></ui-menu-item>
+              <ui-menu-item value="play">播放 <span class="menu-kbd">X</span></ui-menu-item>
+              <ui-menu-item value="pause">暂停 <span class="menu-kbd">C</span></ui-menu-item>
+              <ui-menu-item value="stop">停止 <span class="menu-kbd">V</span></ui-menu-item>
+              <ui-menu-item value="next">下一首 <span class="menu-kbd">B</span></ui-menu-item>
               <ui-menu-separator></ui-menu-separator>
-              <ui-menu-item value="back-5s">Back 5 Seconds <span class="menu-kbd">←</span></ui-menu-item>
-              <ui-menu-item value="fwd-5s">Forward 5 Seconds <span class="menu-kbd">→</span></ui-menu-item>
+              <ui-menu-item value="back-5s">后退 5 秒 <span class="menu-kbd">←</span></ui-menu-item>
+              <ui-menu-item value="fwd-5s">前进 5 秒 <span class="menu-kbd">→</span></ui-menu-item>
             </ui-menu-content>
           </ui-menu>
 
           <ui-menu id="menu-options">
             <ui-menu-trigger>
-              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--options"><span class="mnemonic">O</span>ptions</button>
+              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--options"><span class="mnemonic">选</span>项</button>
             </ui-menu-trigger>
             <ui-menu-content side-offset="4" align="start">
               <ui-menu-checkbox-item id="menu-chk-repeat" value="repeat" default-checked>
                 <ui-menu-item-indicator keep-mounted></ui-menu-item-indicator>
-                Repeat <span class="menu-kbd">R</span>
+                循环 <span class="menu-kbd">R</span>
               </ui-menu-checkbox-item>
               <ui-menu-checkbox-item id="menu-chk-shuffle" value="shuffle">
                 <ui-menu-item-indicator keep-mounted></ui-menu-item-indicator>
-                Shuffle <span class="menu-kbd">S</span>
+                随机 <span class="menu-kbd">S</span>
               </ui-menu-checkbox-item>
               <ui-menu-checkbox-item id="menu-chk-eq" value="eq">
                 <ui-menu-item-indicator keep-mounted></ui-menu-item-indicator>
-                10-Band Equalizer Active
+                10 段均衡器
               </ui-menu-checkbox-item>
               <ui-menu-separator></ui-menu-separator>
               <ui-menu-checkbox-item id="menu-chk-remaining" value="remaining">
                 <ui-menu-item-indicator keep-mounted></ui-menu-item-indicator>
-                Time Remaining Mode
+                显示剩余时间
               </ui-menu-checkbox-item>
             </ui-menu-content>
           </ui-menu>
 
           <ui-menu id="menu-view">
             <ui-menu-trigger>
-              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--view"><span class="mnemonic">V</span>iew</button>
+              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--view"><span class="mnemonic">视</span>图</button>
             </ui-menu-trigger>
             <ui-menu-content side-offset="4" align="start">
-              <ui-menu-item value="view-compact">Compact Player (${COMPACT_WIDTH}×${COMPACT_HEIGHT})</ui-menu-item>
-              <ui-menu-item value="view-full">Full Winamp View (EQ + Playlist + ML) <span class="menu-kbd">⌘F</span></ui-menu-item>
+              <ui-menu-item value="view-compact">紧凑模式 (${COMPACT_WIDTH}×${COMPACT_HEIGHT})</ui-menu-item>
+              <ui-menu-item value="view-full">完整视图（均衡器 + 播放列表 + 媒体库） <span class="menu-kbd">⌘F</span></ui-menu-item>
               <ui-menu-separator></ui-menu-separator>
-              <ui-menu-item value="open-pl">Playlist Editor (PL)</ui-menu-item>
-              <ui-menu-item value="open-ml">Media Library (ML)</ui-menu-item>
-              <ui-menu-item value="open-vis">AVS / Beat Visualizer</ui-menu-item>
-              <ui-menu-item value="toggle-shade">Windowshade Mode</ui-menu-item>
+              <ui-menu-item value="open-pl">播放列表（PL）</ui-menu-item>
+              <ui-menu-item value="open-ml">媒体库（ML）</ui-menu-item>
+              <ui-menu-item value="open-vis">可视化（AVS）</ui-menu-item>
+              <ui-menu-item value="toggle-shade">卷帘模式</ui-menu-item>
               <ui-menu-separator></ui-menu-separator>
               <ui-menu-radio-group id="menu-rad-analyzer" name="analyzer" default-value="spectrum">
                 <ui-menu-radio-item value="spectrum">
                   <ui-menu-item-indicator keep-mounted></ui-menu-item-indicator>
-                  LCD Spectrum Analyzer
+                  LCD 频谱
                 </ui-menu-radio-item>
                 <ui-menu-radio-item value="oscilloscope">
                   <ui-menu-item-indicator keep-mounted></ui-menu-item-indicator>
-                  LCD Oscilloscope
+                  LCD 示波器
                 </ui-menu-radio-item>
                 <ui-menu-radio-item value="off">
                   <ui-menu-item-indicator keep-mounted></ui-menu-item-indicator>
-                  LCD Analyzer Off
+                  关闭 LCD 分析
                 </ui-menu-radio-item>
               </ui-menu-radio-group>
             </ui-menu-content>
@@ -229,11 +225,11 @@ app.innerHTML = `
 
           <ui-menu id="menu-help">
             <ui-menu-trigger>
-              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--help"><span class="mnemonic">H</span>elp</button>
+              <button type="button" class="winamp-menu-trigger-btn winamp-menu-trigger--help"><span class="mnemonic">帮</span>助</button>
             </ui-menu-trigger>
             <ui-menu-content side-offset="4" align="start">
-              <ui-menu-item value="about">About Winamp 5 × Vercel UI SDK</ui-menu-item>
-              <ui-menu-item value="agent-snapshot">Open @ui-sdk/web Agent Inspector</ui-menu-item>
+              <ui-menu-item value="about">关于本播放器</ui-menu-item>
+              <ui-menu-item value="agent-snapshot">打开 UI SDK 智能体检查器</ui-menu-item>
             </ui-menu-content>
           </ui-menu>
         </ui-menubar>
@@ -358,14 +354,14 @@ app.innerHTML = `
             <ui-tabs id="tabs-config" default-value="eq">
               <div class="wa-tabs-header">
                 <ui-tabs-list class="wa-tab-list" aria-label="Winamp Config Tabs">
-                  <ui-tabs-tab value="eq"><button type="button" class="wa-tab-btn">Equalizer</button></ui-tabs-tab>
-                  <ui-tabs-tab value="themes"><button type="button" class="wa-tab-btn">Color Themes</button></ui-tabs-tab>
-                  <ui-tabs-tab value="agent"><button type="button" class="wa-tab-btn">UI SDK Agent</button></ui-tabs-tab>
+                  <ui-tabs-tab value="eq"><button type="button" class="wa-tab-btn">均衡器</button></ui-tabs-tab>
+                  <ui-tabs-tab value="themes"><button type="button" class="wa-tab-btn">颜色主题</button></ui-tabs-tab>
+                  <ui-tabs-tab value="agent"><button type="button" class="wa-tab-btn">智能体</button></ui-tabs-tab>
                 </ui-tabs-list>
                 <div style="display:flex;gap:8px;align-items:center;">
-                  <button type="button" class="wa-mini-pill" data-eq-preset="flat">Flat</button>
-                  <button type="button" class="wa-mini-pill" data-eq-preset="rock">Rock</button>
-                  <button type="button" class="wa-mini-pill" data-eq-preset="club">Club</button>
+                  <button type="button" class="wa-mini-pill" data-eq-preset="flat">平直</button>
+                  <button type="button" class="wa-mini-pill" data-eq-preset="rock">摇滚</button>
+                  <button type="button" class="wa-mini-pill" data-eq-preset="club">俱乐部</button>
                 </div>
               </div>
 
@@ -375,10 +371,10 @@ app.innerHTML = `
                   <div class="wa-eq-left">
                     <div style="display:flex;gap:8px;">
                       <ui-toggle id="toggle-eq-power">
-                        <button type="button" class="wa-mini-pill"><span class="wa-mini-led"></span>ON</button>
+                        <button type="button" class="wa-mini-pill"><span class="wa-mini-led"></span>开</button>
                       </ui-toggle>
                       <ui-toggle id="toggle-eq-auto">
-                        <button type="button" class="wa-mini-pill"><span class="wa-mini-led"></span>AUTO</button>
+                        <button type="button" class="wa-mini-pill"><span class="wa-mini-led"></span>自动</button>
                       </ui-toggle>
                     </div>
                     <div class="wa-eq-spline-box">
@@ -441,11 +437,11 @@ app.innerHTML = `
               <!-- Color Themes Tab Panel (color-presets.xml) -->
               <ui-tabs-panel value="themes" hidden>
                 <div class="wa-theme-swatches">
-                  <button type="button" class="wa-mini-pill" data-hue="0deg">Default Cobalt</button>
-                  <button type="button" class="wa-mini-pill" data-hue="265deg">Classic Nullsoft Green</button>
-                  <button type="button" class="wa-mini-pill" data-hue="165deg">Winamp Fire Gold</button>
-                  <button type="button" class="wa-mini-pill" data-hue="45deg">Cyber Violet</button>
-                  <button type="button" class="wa-mini-pill" data-hue="125deg">Crimson Ruby</button>
+                  <button type="button" class="wa-mini-pill" data-hue="0deg">默认钴蓝</button>
+                  <button type="button" class="wa-mini-pill" data-hue="265deg">经典绿</button>
+                  <button type="button" class="wa-mini-pill" data-hue="165deg">火焰金</button>
+                  <button type="button" class="wa-mini-pill" data-hue="45deg">赛博紫</button>
+                  <button type="button" class="wa-mini-pill" data-hue="125deg">深红宝石</button>
                 </div>
               </ui-tabs-panel>
 
@@ -453,11 +449,11 @@ app.innerHTML = `
               <ui-tabs-panel value="agent" hidden>
                 <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
                   <span style="font-size:14.5px;font-weight:700;color:#253047;">
-                    Live <code>@ui-sdk/web/agent</code> WebMCP Bridge
+                    实时 <code>@ui-sdk/web/agent</code> WebMCP 桥接
                   </span>
                   <div style="display:flex;gap:8px;">
-                    <button type="button" id="btn-refresh-snapshot" class="wa-mini-pill">Refresh Snapshot</button>
-                    <button type="button" id="btn-agent-demo" class="wa-mini-pill">Run agent.act() Demo</button>
+                    <button type="button" id="btn-refresh-snapshot" class="wa-mini-pill">刷新快照</button>
+                    <button type="button" id="btn-agent-demo" class="wa-mini-pill">运行演示</button>
                   </div>
                 </div>
                 <pre id="agent-snapshot-output" class="agent-snapshot-pre"></pre>
@@ -470,12 +466,12 @@ app.innerHTML = `
             <ui-tabs id="tabs-workspace" default-value="pl">
               <div class="wa-tabs-header" style="margin-bottom:2px;">
                 <ui-tabs-list class="wa-tab-list" aria-label="Winamp Workspace Views">
-                  <ui-tabs-tab value="pl"><button type="button" class="wa-tab-btn">Playlist (PL)</button></ui-tabs-tab>
-                  <ui-tabs-tab value="ml"><button type="button" class="wa-tab-btn">Media Library (ML)</button></ui-tabs-tab>
-                  <ui-tabs-tab value="lyrics"><button type="button" class="wa-tab-btn">Suno Lyrics</button></ui-tabs-tab>
-                  <ui-tabs-tab value="vis"><button type="button" class="wa-tab-btn">AVS Visualizer</button></ui-tabs-tab>
+                  <ui-tabs-tab value="pl"><button type="button" class="wa-tab-btn">播放列表</button></ui-tabs-tab>
+                  <ui-tabs-tab value="ml"><button type="button" class="wa-tab-btn">媒体库</button></ui-tabs-tab>
+                  <ui-tabs-tab value="lyrics"><button type="button" class="wa-tab-btn">歌词</button></ui-tabs-tab>
+                  <ui-tabs-tab value="vis"><button type="button" class="wa-tab-btn">可视化</button></ui-tabs-tab>
                 </ui-tabs-list>
-                <input id="wa-search-input" class="wa-search-input" type="search" placeholder="Search tracks, artists…" aria-label="Search Media Library" />
+                <input id="wa-search-input" class="wa-search-input" type="search" placeholder="搜索歌曲、歌手…" aria-label="Search Media Library" />
               </div>
 
               <!-- Authentic Winamp 5 Cobalt LCD Playlist Editor (pledit-normal.xml) -->
@@ -499,10 +495,10 @@ app.innerHTML = `
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Title</th>
-                            <th>Artist</th>
-                            <th>Album</th>
-                            <th>Time</th>
+                            <th>标题</th>
+                            <th>歌手</th>
+                            <th>专辑</th>
+                            <th>时长</th>
                             <th>KBPS</th>
                           </tr>
                         </thead>
@@ -515,6 +511,15 @@ app.innerHTML = `
 
               <!-- Suno v6 Song Lyrics & Track Link Panel -->
               <ui-tabs-panel value="lyrics" hidden>
+                <div class="wa-lyrics-tools">
+                  <button type="button" id="ly-btn-import" class="wa-mini-pill">导入 LRC 歌词</button>
+                  <button type="button" id="ly-btn-edit" class="wa-mini-pill">粘贴 / 编辑歌词</button>
+                  <input id="ly-file" type="file" accept=".lrc,text/plain" hidden />
+                </div>
+                <div id="ly-edit-wrap" hidden>
+                  <textarea id="ly-text" class="wa-ly-textarea" rows="8" placeholder="粘贴 LRC 歌词（带 [00:12.00] 时间轴）或普通歌词，保存后按当前歌曲记住…"></textarea>
+                  <button type="button" id="ly-btn-save" class="wa-mini-pill">保存歌词</button>
+                </div>
                 <div class="wa-lcd-pane">
                   <div id="wa-lyrics-pane" class="wa-pl-scroll" style="padding:12px 18px;white-space:pre-wrap;font-family:var(--winamp-font-mono);font-size:15px;line-height:1.5;user-select:text;"></div>
                 </div>
@@ -531,11 +536,11 @@ app.innerHTML = `
             <!-- Authentic Winamp 5 Modern Bottom Metallic Bar (+ADD, -REM, SEL, EQ, COMPACT, Total Time) -->
             <div class="wa-bottom-bar">
               <div class="wa-bottom-btns">
-                <button type="button" id="pl-btn-add" class="wa-mini-pill" data-agent-confirm="Open the local audio file picker?">+ ADD</button>
-                <button type="button" id="pl-btn-rem" class="wa-mini-pill">− REM</button>
-                <button type="button" id="pl-btn-sel" class="wa-mini-pill">SEL ALL</button>
-                <button type="button" id="pl-btn-eq-toggle" class="wa-mini-pill">HIDE EQ</button>
-                <button type="button" id="pl-btn-compact" class="wa-mini-pill">▲ COMPACT</button>
+                <button type="button" id="pl-btn-add" class="wa-mini-pill" data-agent-confirm="Open the local audio file picker?">+ 添加</button>
+                <button type="button" id="pl-btn-rem" class="wa-mini-pill">− 删除</button>
+                <button type="button" id="pl-btn-sel" class="wa-mini-pill">全选</button>
+                <button type="button" id="pl-btn-eq-toggle" class="wa-mini-pill">隐藏EQ</button>
+                <button type="button" id="pl-btn-compact" class="wa-mini-pill">▲ 紧凑</button>
               </div>
               <div id="wa-total-time" class="wa-lcd-time-pill">0:00 / 10:39</div>
             </div>
@@ -822,12 +827,12 @@ function renderPlaylistAndMediaLibrary(): void {
   // 2. 3-Pane Media Library (integer-indexed filter attributes -> zero attribute injection)
   const genres = ["ALL", ...Array.from(new Set(engine.tracks.map((t) => t.genre)))]
   mlTreePane.innerHTML = `
-    <div class="wa-ml-tree-title">Local Media</div>
+    <div class="wa-ml-tree-title">本地媒体</div>
     ${genres
       .map(
         (g, idx) => `
       <button type="button" class="wa-ml-tree-btn" data-genre-idx="${idx}" data-active="${mlGenreFilter === g}">
-        ${g === "ALL" ? `All Audio (${engine.tracks.length})` : escapeHtml(g)}
+        ${g === "ALL" ? `全部音频 (${engine.tracks.length})` : escapeHtml(g)}
       </button>`,
       )
       .join("")}
@@ -845,12 +850,12 @@ function renderPlaylistAndMediaLibrary(): void {
   const genreMatched = engine.tracks.filter((t) => mlGenreFilter === "ALL" || t.genre === mlGenreFilter)
   const artists = ["ALL", ...Array.from(new Set(genreMatched.map((t) => t.artist)))]
   mlArtistsCol.innerHTML = `
-    <div class="wa-col-hdr">Artists (${artists.length - 1})</div>
+    <div class="wa-col-hdr">歌手 (${artists.length - 1})</div>
     ${artists
       .map(
         (a, idx) => `
       <button type="button" class="wa-filter-item" data-artist-idx="${idx}" data-active="${mlArtistFilter === a}">
-        ${a === "ALL" ? `All (${artists.length - 1} artists)` : escapeHtml(a)}
+        ${a === "ALL" ? `全部 (${artists.length - 1} 位歌手)` : escapeHtml(a)}
       </button>`,
       )
       .join("")}
@@ -867,12 +872,12 @@ function renderPlaylistAndMediaLibrary(): void {
   const artistMatched = genreMatched.filter((t) => mlArtistFilter === "ALL" || t.artist === mlArtistFilter)
   const albums = ["ALL", ...Array.from(new Set(artistMatched.map((t) => t.album)))]
   mlAlbumsCol.innerHTML = `
-    <div class="wa-col-hdr">Albums (${albums.length - 1})</div>
+    <div class="wa-col-hdr">专辑 (${albums.length - 1})</div>
     ${albums
       .map(
         (al, idx) => `
       <button type="button" class="wa-filter-item" data-album-idx="${idx}" data-active="${mlAlbumFilter === al}">
-        ${al === "ALL" ? `All (${albums.length - 1} albums)` : escapeHtml(al)}
+        ${al === "ALL" ? `全部 (${albums.length - 1} 张专辑)` : escapeHtml(al)}
       </button>`,
       )
       .join("")}
@@ -917,12 +922,7 @@ function renderPlaylistAndMediaLibrary(): void {
     })
   })
 
-  const lyricsEl = document.querySelector("#wa-lyrics-pane")
-  if (lyricsEl) {
-    const ct = engine.currentTrack
-    const header = `${ct.artist} — ${ct.title}${ct.sunoUrl ? `\nSuno v6: ${ct.sunoUrl}` : ""}\n${"─".repeat(44)}\n`
-    lyricsEl.textContent = header + (ct.lyrics ?? "Instrumental / Imported Audio Track")
-  }
+  renderLyricsPane()
 }
 
 function refreshAgentSnapshot(): void {
@@ -1040,7 +1040,7 @@ document.querySelector("#pl-btn-sel")!.addEventListener("click", () => {
 document.querySelector("#pl-btn-eq-toggle")!.addEventListener("click", () => {
   configDeckVisible = !configDeckEl.hidden ? false : true
   configDeckEl.hidden = !configDeckVisible
-  btnEqToggleLabel.textContent = configDeckVisible ? "HIDE EQ" : "SHOW EQ"
+  btnEqToggleLabel.textContent = configDeckVisible ? "隐藏EQ" : "显示EQ"
 })
 
 document.querySelector("#pl-btn-compact")!.addEventListener("click", () => {
@@ -1072,7 +1072,7 @@ function openFullViewTab(workspaceTab: "pl" | "ml" | "vis", showEq = true): void
   }
   configDeckVisible = showEq
   configDeckEl.hidden = !showEq
-  btnEqToggleLabel.textContent = showEq ? "HIDE EQ" : "SHOW EQ"
+  btnEqToggleLabel.textContent = showEq ? "隐藏EQ" : "显示EQ"
   tabsWorkspace.value = workspaceTab
   winampWin.api.setFullView(true)
 }
@@ -1085,7 +1085,7 @@ toggleConfig.addEventListener("pressedchange", () => {
   if (!winampWin.api.isFullView()) {
     configDeckVisible = true
     configDeckEl.hidden = false
-    btnEqToggleLabel.textContent = "HIDE EQ"
+    btnEqToggleLabel.textContent = "隐藏EQ"
     tabsConfig.value = "eq"
     winampWin.api.setFullView(true)
   } else {
@@ -1244,7 +1244,7 @@ document.querySelectorAll<UiMenuElement>("ui-menu").forEach((menu) => {
         refreshAgentSnapshot()
         break
       case "about":
-        toast("Winamp 5 Modern — Built with Vercel UI SDK (@ui-sdk/web + @ui-sdk/core) Web Components")
+        toast("WINAMP 经典复刻 · 私人版 — 基于 rauchg/winamp-ui-sdk（MIT）构建")
         break
     }
   })
@@ -1269,7 +1269,7 @@ document.querySelector("#btn-agent-demo")!.addEventListener("click", async () =>
     ],
   })
   refreshAgentSnapshot()
-  toast("Executed agent.act(): toggled Shuffle & set Master Volume to 84")
+  toast("演示已执行：切换随机播放并把音量设为 84")
 })
 
 // Classic Winamp Z X C V B R S M + Full View (Cmd/Ctrl+F) Shortcuts via @ui-sdk/web
@@ -1370,6 +1370,7 @@ function animationFrame(now: number): void {
     liveScrolling: engine.liveAudioRunning && engine.status === "playing",
   }
 
+  syncLyricsHighlight()
   lcd.stepAnimation(dtSec, lcdState)
   lcd.render(lcdState)
   renderAvsVisualizer(now, liveBars, liveWave)
@@ -1378,6 +1379,102 @@ function animationFrame(now: number): void {
 }
 
 requestAnimationFrame(animationFrame)
+
+/* ---------- NoodleAmp patch: lyrics (LRC import / paste / synced highlight) ----------
+   Custom lyrics are kept in localStorage keyed by "artist - title" so they
+   survive reloads together with the IndexedDB library. */
+interface LyLine { time: number; text: string }
+var lyLines: LyLine[] = []
+var lyActiveIdx = -2
+function lyricsKey(): string {
+  const ct = engine.currentTrack
+  return `${ct.artist} - ${ct.title}`
+}
+function loadStoredLyrics(): string | null {
+  try {
+    const m = JSON.parse(localStorage.getItem("winamp-lyrics-v1") ?? "{}") as Record<string, string>
+    return m[lyricsKey()] ?? null
+  } catch { return null }
+}
+function storeLyrics(text: string): void {
+  try {
+    const m = JSON.parse(localStorage.getItem("winamp-lyrics-v1") ?? "{}") as Record<string, string>
+    m[lyricsKey()] = text
+    localStorage.setItem("winamp-lyrics-v1", JSON.stringify(m))
+  } catch { /* storage unavailable */ }
+}
+function parseLrc(text: string): LyLine[] {
+  const out: LyLine[] = []
+  for (const line of text.split(/\r?\n/)) {
+    const stamps = [...line.matchAll(/\[(\d+):(\d+(?:\.\d+)?)\]/g)]
+    const txt = line.replace(/\[[^\]]*\]/g, "").trim()
+    for (const m of stamps) out.push({ time: parseInt(m[1]!, 10) * 60 + parseFloat(m[2]!), text: txt })
+  }
+  return out.sort((a, b) => a.time - b.time)
+}
+function renderLyricsPane(): void {
+  const el = document.querySelector("#wa-lyrics-pane") as HTMLElement | null
+  if (!el) return
+  try { renderLyricsPaneInner(el) } catch { /* lyrics are decorative; never break the player */ }
+}
+function renderLyricsPaneInner(el: HTMLElement): void {
+  const ct = engine.currentTrack
+  const header = `${ct.artist} — ${ct.title}`
+  const text = loadStoredLyrics() ?? ct.lyrics ?? ""
+  lyActiveIdx = -2
+  const parsed = text.includes("[") ? parseLrc(text) : []
+  if (parsed.length > 0) {
+    lyLines = parsed
+    el.innerHTML = `<div class="ly-header">${escapeHtml(header)}\n${"─".repeat(44)}</div>` +
+      parsed.map((l, i) => `<div class="ly-line" data-ly="${i}">${escapeHtml(l.text) || "♪"}</div>`).join("")
+    el.querySelectorAll<HTMLElement>(".ly-line").forEach((node) => {
+      node.addEventListener("click", () => {
+        const idx = Number(node.dataset.ly ?? 0)
+        const line = lyLines[idx]
+        if (line) { engine.seek(line.time); void engine.play() }
+      })
+    })
+  } else {
+    lyLines = []
+    el.textContent = header + "\n" + "─".repeat(44) + "\n" + (text || "暂无歌词 — 点上方「导入 LRC 歌词」或「粘贴 / 编辑歌词」，给这首歌配上歌词。")
+  }
+}
+function syncLyricsHighlight(): void {
+  if (!lyLines || lyLines.length === 0) return
+  const t = engine.currentTime
+  let idx = -1
+  for (let i = 0; i < lyLines.length; i++) { if (lyLines[i]!.time <= t) idx = i; else break }
+  if (idx === lyActiveIdx) return
+  lyActiveIdx = idx
+  document.querySelectorAll<HTMLElement>(".ly-line").forEach((n, i) => n.classList.toggle("active", i === idx))
+  if (idx >= 0) document.querySelector(".ly-line.active")?.scrollIntoView({ block: "center", behavior: "smooth" })
+}
+{
+  const lyFile = document.querySelector("#ly-file") as HTMLInputElement | null
+  const lyText = document.querySelector("#ly-text") as HTMLTextAreaElement | null
+  const lyWrap = document.querySelector("#ly-edit-wrap") as HTMLElement | null
+  document.querySelector("#ly-btn-import")?.addEventListener("click", () => lyFile?.click())
+  lyFile?.addEventListener("change", async () => {
+    const f = lyFile.files?.[0]
+    if (!f) return
+    storeLyrics(await f.text())
+    lyFile.value = ""
+    renderLyricsPane()
+    toast("歌词已导入并保存")
+  })
+  document.querySelector("#ly-btn-edit")?.addEventListener("click", () => {
+    if (!lyWrap || !lyText) return
+    lyWrap.hidden = !lyWrap.hidden
+    if (!lyWrap.hidden) lyText.value = loadStoredLyrics() ?? engine.currentTrack.lyrics ?? ""
+  })
+  document.querySelector("#ly-btn-save")?.addEventListener("click", () => {
+    if (!lyText) return
+    storeLyrics(lyText.value)
+    if (lyWrap) lyWrap.hidden = true
+    renderLyricsPane()
+    toast("歌词已保存")
+  })
+}
 
 /* ---------- NoodleAmp patch: persist imported files in IndexedDB ----------
    Imported audio never leaves the device. On reload, stored files are
@@ -1427,7 +1524,7 @@ async function idbSyncFromEngine(): Promise<void> {
         if (t.id.startsWith("file-") && t.fileUrl) {
           try {
             const blob = await (await fetch(t.fileUrl)).blob()
-            files.push(new File([blob], `${t.artist === "LOCAL FILE" ? "" : `${t.artist} - `}${t.title}`, { type: blob.type }))
+            files.push(new File([blob], `${t.artist === "本地文件" ? "" : `${t.artist} - `}${t.title}`, { type: blob.type }))
           } catch { /* skip unrestorable entry */ }
         }
       }

@@ -20,24 +20,24 @@ export const DEFAULT_TRACKS: TrackInfo[] = [
   {
     id: "noodle-synth-groove",
     artist: "NOODLEAMP",
-    title: "SYNTH GROOVE (PROCEDURAL DEMO)",
-    album: "NoodleAmp Built-in Synth",
-    genre: "Procedural · Web Audio Synth",
-    marqueeTitle: "& NOODLEAMP - SYNTH GROOVE (PROCEDURAL DEMO)   ",
+    title: "合成演示曲（程序合成）",
+    album: "内置合成演示",
+    genre: "程序合成 · Web Audio",
+    marqueeTitle: "& NOODLEAMP - 合成演示曲（程序合成）   ",
     duration: 64,
     kbps: 320,
     khz: 44,
     stereo: true,
     bpm: 118,
     rootMidi: 53,
-    lyrics: `[Intro]
-No audio file here, this groove is synthesized live
-Press the Eject button or File, Play File to open your own songs
+    lyrics: `[说明]
+这首曲子没有音频文件，是播放器用 Web Audio 实时合成的
+点左上角「文件 → 打开文件」导入你自己的歌曲
+导入的歌存在浏览器本地（IndexedDB），刷新不会丢
 
-[Verse]
-Your music stays on your device
-Imported files are stored locally in IndexedDB
-Press PL to open the playlist editor`,
+[歌词]
+切到「歌词」标签页，可以为任意歌曲导入 .lrc 歌词文件
+也可以粘贴带时间轴的 LRC 歌词，播放时会自动同步高亮`,
   },
 ]
 
@@ -306,14 +306,14 @@ export class WinampAudioEngine {
       const duration = await this.probeDuration(url)
       const stem = file.name.replace(/\.[^.]+$/, "").toUpperCase()
       const parts = stem.split(" - ")
-      const artist = parts.length > 1 ? parts[0]!.trim() : "LOCAL FILE"
+      const artist = parts.length > 1 ? parts[0]!.trim() : "本地文件"
       const title = parts.length > 1 ? parts.slice(1).join(" - ").trim() : stem
       const info: TrackInfo = {
         id: `file-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
         artist,
         title,
-        album: "Imported Audio",
-        genre: "Local Files",
+        album: "导入的音乐",
+        genre: "本地文件",
         marqueeTitle: `& ${artist} - ${title}   `,
         duration: Math.max(1, Math.round(duration || 180)),
         kbps: 320,
