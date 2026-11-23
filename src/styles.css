@@ -46,38 +46,6 @@ body.bare-mode .desktop-stage {
   height: 442px;
 }
 
-/* Top-right Source link on the demo website */
-.demo-source-link {
-  position: fixed;
-  top: 16px;
-  right: 20px;
-  z-index: 40;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 11px;
-  border-radius: 999px;
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(8px);
-  color: #3f3f46;
-  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  text-decoration: none;
-  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
-}
-
-.demo-source-link:hover {
-  color: #09090b;
-  border-color: rgba(15, 23, 42, 0.22);
-  background: #ffffff;
-}
-
-body.bare-mode .demo-source-link {
-  display: none !important;
-}
 
 /* ==========================================================================
    <winamp-window> Custom Element (@ui-sdk/core definePrimitive + createResize)
