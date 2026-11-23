@@ -1424,9 +1424,21 @@ function renderLyricsPaneInner(el: HTMLElement): void {
   const header = `${ct.artist} — ${ct.title}`
   const text = loadStoredLyrics() ?? ct.lyrics ?? ""
   lyActiveIdx = -2
+  // Marquee bookkeeping: restore the previous track's title when switching away
+  if (lyMarqueeTrackId && lyMarqueeTrackId !== ct.id) {
+    const prev = engine.tracks.find((t) => t.id === lyMarqueeTrackId)
+    if (prev) prev.marqueeTitle = lyOrigMarquee
+    lyMarqueeTrackId = ""
+  }
   const parsed = text.includes("[") ? parseLrc(text) : []
+  const userLyrics = loadStoredLyrics()
   if (parsed.length > 0) {
     if (lyMarqueeTrackId !== ct.id) { lyMarqueeTrackId = ct.id; lyOrigMarquee = ct.marqueeTitle }
+  } else if (userLyrics && userLyrics.trim()) {
+    // Plain (untimed) user lyrics: scroll the whole text in the LCD strip
+    if (lyMarqueeTrackId !== ct.id) { lyMarqueeTrackId = ct.id; lyOrigMarquee = ct.marqueeTitle }
+    const joined = userLyrics.split(/\r?\n/).map((l) => l.trim()).filter(Boolean).join("   ")
+    if (joined) ct.marqueeTitle = joined
   } else if (lyMarqueeTrackId === ct.id) {
     ct.marqueeTitle = lyOrigMarquee
     lyMarqueeTrackId = ""
