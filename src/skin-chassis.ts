@@ -364,11 +364,6 @@ export function renderChassisSvg(): string {
       <g id="chassis-mobile-accents" display="none">
         <rect x="486" y="280" width="76" height="51" rx="25.5" fill="url(#capsuleRecessGrad)" stroke="#666b7e" stroke-width="1.2" />
         <rect x="492.5" y="285" width="63" height="41" rx="20.5" fill="#232737" />
-        <g transform="translate(-334, 0)">
-          <polygon points="872,363 853,384 865,384 851,405 883,380 870,380 884,363" fill="rgba(40,35,32,0.32)" transform="translate(1.5, 2)" />
-          <polygon points="872,363 853,384 865,384 851,405 883,380 870,380 884,363" fill="url(#winampBoltGrad)" stroke="#2b1910" stroke-width="1.7" stroke-linejoin="round" />
-          <polyline points="881,365 872.5,365 856.5,382.5 866.5,382.5 855,400" fill="none" stroke="rgba(255,248,190,0.78)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
-        </g>
       </g>
 
       <!-- 9. Bottom-Right CONFIG Arch + Winamp Lightning Bolt (shifts right by +dW) -->
@@ -393,11 +388,6 @@ export function renderChassisSvg(): string {
           Z
         " fill="#aeb3c4" />
 
-        <g>
-          <polygon points="872,363 853,384 865,384 851,405 883,380 870,380 884,363" fill="rgba(40,35,32,0.32)" transform="translate(1.5, 2)" />
-          <polygon points="872,363 853,384 865,384 851,405 883,380 870,380 884,363" fill="url(#winampBoltGrad)" stroke="#2b1910" stroke-width="1.7" stroke-linejoin="round" />
-          <polyline points="881,365 872.5,365 856.5,382.5 866.5,382.5 855,400" fill="none" stroke="rgba(255,248,190,0.78)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
-        </g>
       </g>
 
       <!-- Full View Horizontal Bevel Divider at y=428 (shown when dH > 4) -->

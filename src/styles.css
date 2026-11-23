@@ -1326,11 +1326,10 @@ winamp-window[data-mobile] #toggle-ml,
 winamp-window[data-mobile] #toggle-mute,
 winamp-window[data-mobile] #slider-volume,
 winamp-window[data-mobile] #toggle-config,
-winamp-window[data-mobile] #wa-config-deck,
 winamp-window[data-mobile] ui-tabs#tabs-workspace ui-tabs-tab[value="ml"],
 winamp-window[data-mobile] #wa-search-input,
 winamp-window[data-mobile] #pl-btn-sel,
-winamp-window[data-mobile] #pl-btn-eq-toggle {
+winamp-window[data-mobile] #pl-btn-sel2-unused {
   display: none !important;
 }
 
@@ -1354,3 +1353,11 @@ winamp-window[data-mobile] .wa-bottom-bar {
   padding-right: 6px;
 }
 
+
+/* --- NoodleAmp patch: lyrics --- */
+.wa-lyrics-tools{display:flex;gap:8px;padding:10px 14px 0;flex-wrap:wrap}
+.wa-ly-textarea{width:calc(100% - 28px);margin:10px 14px 4px;background:#0a1e46;color:#cfe4ff;border:1px solid #39548c;border-radius:8px;padding:10px;font-family:var(--winamp-font-mono);font-size:14px;line-height:1.5}
+#ly-btn-save{margin:4px 14px 10px}
+.ly-line{padding:2px 8px;border-radius:6px;cursor:pointer;transition:color .2s}
+.ly-line.active{color:#ffd94d;font-weight:700;background:rgba(255,217,77,.08)}
+.ly-header{white-space:pre-wrap;margin-bottom:6px;opacity:.85}

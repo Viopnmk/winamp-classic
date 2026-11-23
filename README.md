@@ -1,5 +1,11 @@
 # Winamp Classic — 私人复刻版（kao）
 
+
+**v2 改动（中文版）**：界面全面中文化（菜单/均衡器/播放列表/媒体库）；去掉右下角闪电标志；
+手机端放出均衡器面板（点 PL 展开完整视图即可调 10 段 EQ + 预设）；新增歌词功能——
+「歌词」标签页可为任意歌曲导入 .lrc 文件或粘贴 LRC 文本（按歌曲存 localStorage），
+播放时逐行同步高亮、点歌词行可跳转。
+
 基于 [rauchg/winamp-ui-sdk](https://github.com/rauchg/winamp-ui-sdk)（MIT，© 2026 Guillermo Rauch）的原版源码构建，视觉与交互与原版保持一致：银灰金属外壳、蓝色 LCD、File/Play/Options 菜单、圆形控制按钮、PL 播放列表、10 段 EQ 与频谱。
 
 与上游的差异（仅功能层，不动皮肤）：
