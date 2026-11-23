@@ -1386,6 +1386,8 @@ requestAnimationFrame(animationFrame)
 interface LyLine { time: number; text: string }
 var lyLines: LyLine[] = []
 var lyActiveIdx = -2
+var lyMarqueeTrackId = ""
+var lyOrigMarquee = ""
 function lyricsKey(): string {
   const ct = engine.currentTrack
   return `${ct.artist} - ${ct.title}`
@@ -1424,6 +1426,12 @@ function renderLyricsPaneInner(el: HTMLElement): void {
   lyActiveIdx = -2
   const parsed = text.includes("[") ? parseLrc(text) : []
   if (parsed.length > 0) {
+    if (lyMarqueeTrackId !== ct.id) { lyMarqueeTrackId = ct.id; lyOrigMarquee = ct.marqueeTitle }
+  } else if (lyMarqueeTrackId === ct.id) {
+    ct.marqueeTitle = lyOrigMarquee
+    lyMarqueeTrackId = ""
+  }
+  if (parsed.length > 0) {
     lyLines = parsed
     el.innerHTML = `<div class="ly-header">${escapeHtml(header)}\n${"─".repeat(44)}</div>` +
       parsed.map((l, i) => `<div class="ly-line" data-ly="${i}">${escapeHtml(l.text) || "♪"}</div>`).join("")
@@ -1444,8 +1452,16 @@ function syncLyricsHighlight(): void {
   const t = engine.currentTime
   let idx = -1
   for (let i = 0; i < lyLines.length; i++) { if (lyLines[i]!.time <= t) idx = i; else break }
-  if (idx === lyActiveIdx) return
-  lyActiveIdx = idx
+  if (idx !== lyActiveIdx) {
+    lyActiveIdx = idx
+    // Feed the current lyric line into the LCD marquee strip
+    if (lyMarqueeTrackId === engine.currentTrack.id) {
+      const target = idx >= 0 ? (lyLines[idx]!.text || lyOrigMarquee) : lyOrigMarquee
+      if (target && engine.currentTrack.marqueeTitle !== target) engine.currentTrack.marqueeTitle = target
+    }
+  } else {
+    return
+  }
   document.querySelectorAll<HTMLElement>(".ly-line").forEach((n, i) => n.classList.toggle("active", i === idx))
   if (idx >= 0) document.querySelector(".ly-line.active")?.scrollIntoView({ block: "center", behavior: "smooth" })
 }

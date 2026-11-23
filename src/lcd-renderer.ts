@@ -765,47 +765,71 @@ export class WinampLcdRenderer {
     }
 
     const upper = text.toUpperCase()
-    // Build column bitmap stream for one full loop of `upper`
-    const cols: number[] = []
-    for (let idx = 0; idx < upper.length; idx++) {
-      const ch = upper[idx]!
-      const glyph = DOT_GLYPHS[ch] ?? DOT_GLYPHS[" "]!
-      const glyphW = glyph[0]?.length ?? 3
-      for (let c = 0; c < glyphW; c++) {
-        let mask = 0
-        for (let r = 0; r < glyph.length; r++) {
-          if (glyph[r]?.[c] === "1") mask |= 1 << r
+    // Segment the text: runs renderable in the dot-matrix font, and runs of
+    // other characters (e.g. CJK lyrics) drawn as smooth text in the same strip.
+    ctx.font = '700 23px "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif'
+    type Seg = { kind: "dots"; cols: number[]; w: number } | { kind: "text"; chars: string[]; w: number }
+    const segs: Seg[] = []
+    let cur: Seg | null = null
+    const charW = (ch: string): number => ctx.measureText(ch).width + 3
+    for (const ch of upper) {
+      const glyph = DOT_GLYPHS[ch]
+      if (glyph) {
+        if (!cur || cur.kind !== "dots") { cur = { kind: "dots", cols: [], w: 0 }; segs.push(cur) }
+        const seg = cur as { kind: "dots"; cols: number[]; w: number }
+        const glyphW = glyph[0]?.length ?? 3
+        for (let c = 0; c < glyphW; c++) {
+          let mask = 0
+          for (let r = 0; r < glyph.length; r++) {
+            if (glyph[r]?.[c] === "1") mask |= 1 << r
+          }
+          seg.cols.push(mask)
         }
-        cols.push(mask)
+        seg.cols.push(0)
+        seg.w = seg.cols.length * dotPitchX
+      } else {
+        if (!cur || cur.kind !== "text") { cur = { kind: "text", chars: [], w: 0 }; segs.push(cur) }
+        const seg = cur as { kind: "text"; chars: string[]; w: number }
+        seg.chars.push(ch)
+        seg.w += charW(ch)
       }
-      // 1-dot inter-character gap
-      cols.push(0)
     }
 
-    const loopWidthPx = Math.max(1, cols.length * dotPitchX)
+    const loopWidthPx = Math.max(1, segs.reduce((a, sg) => a + sg.w, 0))
     const wrappedPx = ((this.marqueePx % loopWidthPx) + loopWidthPx) % loopWidthPx
 
     ctx.shadowColor = "rgba(165, 200, 255, 0.45)"
     ctx.shadowBlur = 2.2
+    ctx.fillStyle = "#c4d5f7"
 
     // Render two seamless copies for wraparound
     for (let copy = 0; copy < 2; copy++) {
       const copyOffset = startX - wrappedPx + copy * loopWidthPx
       if (copyOffset > clipX + clipW || copyOffset + loopWidthPx < clipX - 10) continue
 
-      for (let c = 0; c < cols.length; c++) {
-        const mask = cols[c]!
-        if (mask === 0) continue
-        const dx = copyOffset + c * dotPitchX
-        if (dx < clipX - 5 || dx > clipX + clipW + 2) continue
-
-        for (let r = 0; r < 6; r++) {
-          if ((mask & (1 << r)) !== 0) {
-            const dy = baseDotY + r * dotPitchY
-            ctx.fillStyle = "#c4d5f7"
-            ctx.fillRect(dx - 0.3, dy - 1.5, 3.3, 3.3)
+      let segX = copyOffset
+      for (const seg of segs) {
+        if (seg.kind === "dots") {
+          for (let c = 0; c < seg.cols.length; c++) {
+            const mask = seg.cols[c]!
+            if (mask === 0) continue
+            const dx = segX + c * dotPitchX
+            if (dx < clipX - 5 || dx > clipX + clipW + 2) continue
+            for (let r = 0; r < 6; r++) {
+              if ((mask & (1 << r)) !== 0) {
+                const dy = baseDotY + r * dotPitchY
+                ctx.fillRect(dx - 0.3, dy - 1.5, 3.3, 3.3)
+              }
+            }
+          }
+        } else {
+          let tx = segX
+          for (const ch of seg.chars) {
+            if (tx > clipX - 24 && tx < clipX + clipW + 2) ctx.fillText(ch, tx, 137)
+            tx += charW(ch)
           }
         }
+        segX += seg.w
       }
     }
 
